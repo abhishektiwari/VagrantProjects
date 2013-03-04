@@ -1,0 +1,11 @@
+Access localhost:8080 for the graphs
+
+Push data directly into carbon/graphite by localhost:2003. Example:
+
+# set a metric called test.somemetic to value 100
+echo "test.somemetric 100 `date +%s`" | nc localhost 2003
+
+Push data directly into statsd by localhost:8125. Example:
+
+# increase the test counter by 10
+echo -n "test:10|c" | nc -u localhost 8125
